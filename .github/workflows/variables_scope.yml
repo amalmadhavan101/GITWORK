@@ -8,13 +8,12 @@ on:
 jobs:
   variable_scope_job:
     runs-on: ubuntu-latest
-    
     env:
       MY_WORKFLOW_VARIABLE: "This is a workflow-level variable"
 
     steps:
     - name: Display Workflow-Level Variable
-      run: echo ${{ env.$MY_WORKFLOW_VARIABLE}}
+      run: echo ${{ env.MY_WORKFLOW_VARIABLE}}
       shell: bash
 
    
