@@ -13,4 +13,4 @@ jobs:
 
     - name: install new software
       run: |
-        echo docker --version
+       docker --version
