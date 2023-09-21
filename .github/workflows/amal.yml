@@ -14,3 +14,6 @@ jobs:
     - name: install new software
       run: |
        docker --version
+    - name: Use Secret
+      run: |
+        echo "Secret Value: ${{ secrets.KICHU }}"
