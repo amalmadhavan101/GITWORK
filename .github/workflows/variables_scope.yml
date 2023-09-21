@@ -6,16 +6,13 @@ on:
       - main
 
 env:   # Define workflow-level environment variables here
-      
-      MY_WORKFLOW_VARIABLE: This is a workflow-level variable outside!
-
+  MY_WORKFLOW_VARIABLE: This is a workflow-level variable outside!
 
 jobs:
   build:
     runs-on: ubuntu-latest
-    
+
     env:   # Job Env Variable
-      
       JOB_VARIABLE: This is a JOB-level variable that is inside the JOB
 
     steps:
@@ -25,8 +22,13 @@ jobs:
     - name: Print workflow-level variables
       run: |
         echo "Workflow Variable: $MY_WORKFLOW_VARIABLE"
-        
 
     - name: Print JOB-level variables
       run: |
-        echo "JOB Variable: $JOB_VARIABLE"
+        echo "JOB Variable: $JOB_VARIABLE"
+    
+    - name: Define Step-Level Variable
+      env:   # Step Env Variable
+        MY_STEP_VARIABLE: This is a step-level variable
+      run: |
+        echo "Step Variable: $MY_STEP_VARIABLE"
