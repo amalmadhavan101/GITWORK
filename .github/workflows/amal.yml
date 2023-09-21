@@ -1,0 +1,6 @@
+name: My CI/CD Workflow
+
+on:
+  push:
+    branches:
+      - main
