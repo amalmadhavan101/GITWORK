@@ -1,0 +1,33 @@
+name: Variable Scopes Demo
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  variable_scope_job:
+    runs-on: ubuntu-latest
+    
+    env:
+      MY_WORKFLOW_VARIABLE: "This is a workflow-level variable"
+
+    steps:
+    - name: Display Workflow-Level Variable
+      run: echo "Workflow Variable: $MY_WORKFLOW_VARIABLE"
+
+    - name: Define Job-Level Variable
+      env:
+        MY_JOB_VARIABLE: "This is a job-level variable"
+      run: echo "Job Variable: $MY_JOB_VARIABLE"
+
+    - name: Define Step-Level Variable
+      env:
+        MY_STEP_VARIABLE: "This is a step-level variable"
+      run: echo "Step Variable: $MY_STEP_VARIABLE"
+
+    - name: Use Variables in Steps
+      run: |
+        echo "Using Workflow Variable in Step: $MY_WORKFLOW_VARIABLE"
+        echo "Using Job Variable in Step: $MY_JOB_VARIABLE"
+        echo "Using Step Variable in Step: $MY_STEP_VARIABLE"
